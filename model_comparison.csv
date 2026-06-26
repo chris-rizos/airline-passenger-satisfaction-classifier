@@ -1,0 +1,4 @@
+Algorithm,Hyperparameter,Accuracy,F1,Fit time (s)
+Decision Tree,max_depth=8,0.928,0.9153,0.04
+K-Nearest Neighbors,"n_neighbors=5, weights='uniform'",0.906,0.8845,0.051
+Logistic Regression,"C=1.0, max_iter=1000",0.884,0.8606,0.083
