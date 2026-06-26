@@ -16,7 +16,7 @@ Advanced optional assignment for the **University of Athens BIS-Analytics** MSc 
 
 This project deploys a classification model that predicts **airline passenger satisfaction** based on passenger, travel and service-related features.
 
-The app follows the **train-once / serve-many** deployment pattern. All model training happens offline in `train_and_save_model.ipynb`; `app.py` only loads the fitted artifact and serves predictions. The app never calls `.fit()`.
+The app follows the **train-once / serve-many** deployment pattern. All model training happens offline in `train_and_save_model_code.ipynb`; `app.py` only loads the fitted artifact and serves predictions. The app never calls `.fit()`.
 
 The deployed Gradio app contains three tabs:
 
@@ -29,7 +29,7 @@ The deployed Gradio app contains three tabs:
 | File                                             | Purpose                                                                                                                     |
 | ------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- |
 | `app.py`                                         | Gradio app served on Hugging Face Spaces — load and predict only, no training                                               |
-| `train_and_save_model.ipynb`                     | Offline training notebook — fits all candidate pipelines, selects the winner and writes the artifacts                       |
+| `train_and_save_model_code.ipynb`                | Offline training notebook — fits all candidate pipelines, selects the winner and writes the artifacts                       |
 | `model.joblib`                                   | Bundle of all fitted `Pipeline`s plus metadata, such as feature names, target name, winner name and justification           |
 | `model_comparison.csv`                           | Per-algorithm test-set scores, rendered statically in the Model Card tab                                                    |
 | `data/airline_passenger_satisfaction_sample.csv` | Bundled sample of the airline passenger satisfaction dataset used by the app                                                |
@@ -50,7 +50,7 @@ The features include passenger characteristics, travel information, service rati
 
 ## Model Training
 
-The model training process is performed in `train_and_save_model.ipynb`.
+The model training process is performed in `train_and_save_model_code.ipynb`.
 
 The notebook:
 
@@ -70,7 +70,7 @@ The Gradio app does not retrain the models. It only loads the saved files.
 In a virtual environment with the listed requirements:
 
 ```bash
-jupyter lab train_and_save_model.ipynb   # run all cells → writes model.joblib and model_comparison.csv
+jupyter lab train_and_save_model_code.ipynb   # run all cells → writes model.joblib and model_comparison.csv
 python app.py                            # serves locally on http://127.0.0.1:7860
 ```
 
@@ -82,7 +82,7 @@ The expected folder structure is:
 
 ```text
 app.py
-train_and_save_model.ipynb
+train_and_save_model_code.ipynb
 model.joblib
 model_comparison.csv
 requirements.txt
